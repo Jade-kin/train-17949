@@ -7,7 +7,7 @@ stages:
 maven-test-branches:
   stage: mvn-package
   script:
-    - git_merge develop
+    - git_merge c7n-tarin-142
     - mvn package -U -DskipTests=false
   only:
     - branches
