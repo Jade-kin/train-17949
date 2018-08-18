@@ -7,7 +7,7 @@ stages:
 maven-test-branches:
   stage: mvn-package
   script:
-    - git_merge c7n-tarin-142
+    - git_merge master
     - mvn package -U -DskipTests=false
   only:
     - branches
@@ -29,6 +29,7 @@ maven-test-build:
   only:
     - tags
     - develop
+    - master
     - /^release-.*$/
     - /^hotfix-.*$/
 
@@ -38,6 +39,7 @@ docker-build:
     - docker_build
     - chart_build
   only:
+    - master
     - tags
     - develop
     - /^release-.*$/
